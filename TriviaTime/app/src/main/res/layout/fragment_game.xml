@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="ru.vsu.cs.zmaev.screens.GameFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark">
+
+            <ImageView
+                android:id="@+id/questionImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="@dimen/default_margin"
+                android:contentDescription="@string/description"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toTopOf="@+id/questionText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_account" />
+
+            <TextView
+                android:id="@+id/questionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comfortaa"
+                android:layout_marginHorizontal="@dimen/default_margin"
+                android:text="@{}"
+                android:textColor="@color/question_text_color"
+                android:layout_marginTop="50dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/questionImage"
+                tools:text="What color is the Android mascot?" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="?attr/actionBarSize">
+
+                <Button
+                    android:id="@+id/firstAnswerButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="@{}"
+                    app:layout_constraintBottom_toTopOf="@id/secondAnswerButton"
+                    tools:text="Green" />
+
+                <Button
+                    android:id="@+id/secondAnswerButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="@{}"
+                    app:layout_constraintBottom_toTopOf="@id/thirdAnswerButton"
+                    tools:text="Yellow" />
+
+                <Button
+                    android:id="@+id/thirdAnswerButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="@{}"
+                    app:layout_constraintBottom_toTopOf="@id/fourthAnswerButton"
+                    tools:text="White" />
+
+                <Button
+                    android:id="@+id/fourthAnswerButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="@{}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="Black" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

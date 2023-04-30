@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="ru.vsu.cs.zmaev.screens.HomeFragment"
+        android:label="Главная"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_leaderboard"
+        android:name="ru.vsu.cs.zmaev.screens.LeaderBoardFragment"
+        android:label="Лидеры"
+        tools:layout="@layout/fragment_leader_board" />
+
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="ru.vsu.cs.zmaev.screens.AccountFragment"
+        android:label="Аккаунт"
+        tools:layout="@layout/fragment_account" />
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="ru.vsu.cs.zmaev.screens.auth.LoginFragment"
+        android:label="Вход"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="ru.vsu.cs.zmaev.screens.auth.RegisterFragment"
+        android:label="Регистрация"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="ru.vsu.cs.zmaev.screens.GameFragment"
+        android:label="Trivia Time"
+        tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/action_gameFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="ru.vsu.cs.zmaev.screens.ResultFragment"
+        android:label="Результат"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+</navigation>

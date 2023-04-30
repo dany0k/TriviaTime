@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Trivia Time</string>
+    <string name="game_over">Game Over</string>
+    <string name="try_again">Try Again?</string>
+    <string name="position">Position</string>
+    <string name="select_an_avatar">Select an Avatar</string>
+    <string name="giga_quiz">GigaQuiz</string>
+    <string name="about_text">С помощью GigaQuiz ты можешь проверить свой уровень знаний из различных свер. Надеюсь тебе понравиться данная викторина.</string>
+    <string name="rules_text">\tВыбери ответ из предложенных вариантов.\n
+        \n\tЕсли ты ответил неправильно, не расстраивайся! После завершения теста, ты всегда можешь вернуться к нему еще раз. В конце теста ты можешь увидеть свой результат.</string>
+    <string name="rules">Правила</string>
+    <string name="about">О приложении</string>
+    <string name="trivia_hint">Trivia Hint</string>
+    <string name="title_giga_quiz_question">GigaQuiz (%1$d/%2$d)</string>
+    <string name="title_about_trivia">GigaQuiz</string>
+    <string name="title_quiz_rules">GigaQuiz Rules</string>
+    <string name="submit_button">Подтвердить</string>
+    <string name="congratulations">Поздравляю!</string>
+    <string name="description">description</string>
+    <string name="play_quiz">Играть</string>
+    <string name="your_result">Твой результат!</string>
+    <string name="next_match">Выбрать тест</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="themes_ft">Темы</string>
+    <string name="hint_name_til">Даниил</string>
+    <string name="username_hint_text">Ваше имя</string>
+    <string name="country">Страна</string>
+    <string name="hint_country_til">Россия</string>
+    <string name="hint_age_tiet">54</string>
+    <string name="age">Возраст</string>
+    <string name="sex">Пол</string>
+    <string name="categories_result">Результат по категориям</string>
+    <string name="android_result">Андроид:</string>
+    <string name="geographical_result">География:</string>
+    <string name="registration_button_text">Регистрация</string>
+    <string name="menu_navigation">Меню</string>
+    <string name="profile_navigation">Профиль</string>
+    <string name="home_page_navigation">На главную</string>
+    <string name="rules_navigation">Правила</string>
+    <string name="choose_theme_text">Темы</string>
+    <string name="title_play_auto_brand_quiz">Марки авто</string>
+    <string name="title_play_science_quiz">Наука</string>
+    <string name="login_text">Почта</string>
+    <string name="password_hint_text">Пароль</string>
+    <string name="again_password_hint_text">Подтверждение пароля</string>
+    <string name="have_account_text">Уже есть аккаунт</string>
+    <string name="account_nav_text">Аккаунт</string>
+    <string name="home_nav_text">Главная</string>
+    <string name="leaderboard_nav_text">Топ</string>
+    <string name="continue_button_label">Продолжить</string>
+
+</resources>
