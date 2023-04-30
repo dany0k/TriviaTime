@@ -12,8 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.vsu.cs.zmaev.R;
 import ru.vsu.cs.zmaev.adapter.ResultsRVAdapter;
 import ru.vsu.cs.zmaev.databinding.FragmentAccountBinding;
 import ru.vsu.cs.zmaev.model.Result;
@@ -72,11 +75,16 @@ public class AccountFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        binding.leaverAccountButton.setOnClickListener(v -> {
+            BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.nav_view);
+            bottomNavigationView.setVisibility(View.GONE);
+            viewModel.leaveAccount();
+            Navigation.findNavController(v)
+                    .navigate(R.id.action_navigation_account_to_registerFragment);
+        });
         viewModel.getUser().observe(getViewLifecycleOwner(), user -> {
             binding.userNameTv.setText(user.getName());
         });
-
     }
 
     public void getResults() {

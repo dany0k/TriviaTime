@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -62,8 +63,13 @@ public class HomeFragment extends Fragment implements TopicRVAdapter.TopicClickI
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser == null) {
+            BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.nav_view);
+            bottomNavigationView.setVisibility(View.GONE);
             Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
                     .navigate(R.id.action_navigation_home_to_registerFragment);
+        } else {
+            BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.nav_view);
+            bottomNavigationView.setVisibility(View.VISIBLE);
         }
     }
     private void initRvItems() {

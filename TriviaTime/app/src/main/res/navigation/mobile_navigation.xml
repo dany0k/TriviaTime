@@ -28,7 +28,11 @@
         android:id="@+id/navigation_account"
         android:name="ru.vsu.cs.zmaev.screens.AccountFragment"
         android:label="Аккаунт"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_navigation_account_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/loginFragment"

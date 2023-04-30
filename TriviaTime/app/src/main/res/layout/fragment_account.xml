@@ -20,20 +20,6 @@
         tools:layout_editor_absoluteX="0dp">
 
     </ImageView>
-
-    <ImageButton
-        android:id="@+id/editProfileButton"
-        android:layout_width="39dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="5sp"
-        android:background="@drawable/ic_edit"
-        android:contentDescription="@string/description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
-
     <ImageView
         android:id="@+id/profileImage"
         android:layout_width="100dp"
@@ -83,6 +69,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/result_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20sp"
@@ -109,17 +96,19 @@
             android:textSize="20sp"
             android:fontFamily="@font/comfortaa"
             android:textColor="@color/question_text_color"/>
-
-        <TextView
-            android:id="@+id/result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/comfortaa"
-            android:textColor="@color/question_text_color"
-            android:textSize="20sp"
-            android:text=""/>
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/leaverAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5sp"
+        android:contentDescription="@string/description"
+        android:text="Выйти из аккаунта"
+        android:layout_margin="@dimen/default_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/result_ll"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,11 +19,13 @@ import com.google.firebase.auth.FirebaseUser;
 
 import ru.vsu.cs.zmaev.R;
 import ru.vsu.cs.zmaev.databinding.FragmentLoginBinding;
+import ru.vsu.cs.zmaev.viewmodels.AccountViewModel;
 
 public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding binding;
     private FirebaseAuth mAuth;
+    private AccountViewModel viewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -32,6 +35,7 @@ public class LoginFragment extends Fragment {
                 container,
                 false
         );
+        viewModel = new ViewModelProvider(requireActivity()).get(AccountViewModel.class);
         mAuth = FirebaseAuth.getInstance();
         return binding.getRoot();
     }
@@ -54,6 +58,7 @@ public class LoginFragment extends Fragment {
                     if (task.isSuccessful()) {
                         Log.d(TAG, "signInWithEmail:success");
                         FirebaseUser user = mAuth.getCurrentUser();
+                        viewModel.setFBUser(user);
                     } else {
                         Log.w(TAG, "signInWithEmail:failure", task.getException());
                     }
