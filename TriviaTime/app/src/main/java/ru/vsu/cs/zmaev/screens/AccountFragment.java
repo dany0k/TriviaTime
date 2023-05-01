@@ -97,8 +97,10 @@ public class AccountFragment extends Fragment {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
                     User user = snapshot.getValue(User.class);
                     List<Result> temp = new ArrayList<>();
-                    for (String key: user.getResults().keySet()) {
-                        temp.add(new Result(key, user.getResults().get(key)));
+                    if (user.getResults() != null) {
+                        for (String key : user.getResults().keySet()) {
+                            temp.add(new Result(key, user.getResults().get(key)));
+                        }
                     }
                     adapter.setItems(temp);
                 }

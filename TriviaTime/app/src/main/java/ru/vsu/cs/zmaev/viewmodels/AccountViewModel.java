@@ -7,17 +7,23 @@ import androidx.lifecycle.ViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.List;
-
-import ru.vsu.cs.zmaev.model.Result;
 import ru.vsu.cs.zmaev.model.User;
 
 public class AccountViewModel extends ViewModel {
     private MutableLiveData<User> userMutable = new MutableLiveData<>();
     private MutableLiveData<FirebaseUser> firebaseUserMutable = new MutableLiveData<>();
-    private MutableLiveData<List<Result>> results = new MutableLiveData<>();
+    private MutableLiveData<Long> result = new MutableLiveData<>();
 
     private FirebaseAuth mAuth;
+
+    public LiveData<Long> getResults() {
+        return result;
+    }
+
+    public void setResults(long result) {
+        this.result.setValue(result);
+    }
+
 
     public AccountViewModel() {
         mAuth = FirebaseAuth.getInstance();

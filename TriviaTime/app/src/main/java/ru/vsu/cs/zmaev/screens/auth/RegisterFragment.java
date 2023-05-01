@@ -68,6 +68,7 @@ public class RegisterFragment extends Fragment {
 
             if (passwordAgain.equals(password)) {
                 createAccount(email, password, name);
+                createTotal(name);
                 Navigation.findNavController(v)
                         .navigate(R.id.action_registerFragment_to_navigation_home);
             } else {
@@ -83,6 +84,11 @@ public class RegisterFragment extends Fragment {
             Navigation.findNavController(view)
                     .navigate(R.id.action_registerFragment_to_loginFragment);
         });
+    }
+
+    private void createTotal(String name) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("total");
+        databaseReference.child(name).setValue(0L);
     }
 
     private void createAccount(String email, String password, String name) {

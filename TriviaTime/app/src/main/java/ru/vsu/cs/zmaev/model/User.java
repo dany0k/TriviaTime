@@ -1,11 +1,11 @@
 package ru.vsu.cs.zmaev.model;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Map;
 
 public class User implements Serializable {
     private String name;
+    private long total;
     private Map<String, String> results;
 
     public User(String name, Map<String, String> results) {
@@ -18,6 +18,14 @@ public class User implements Serializable {
     }
 
     public User() {
+    }
+
+    public void setTotal(long total) {
+        this.total = total;
+    }
+
+    public long getTotal() {
+        return total;
     }
 
     public Map<String, String> getResults() {

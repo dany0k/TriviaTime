@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:hint="@string/login_text"
+        android:inputType="textEmailAddress"
+        android:maxLength="32"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,6 +24,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:inputType="textPassword"
+        android:maxLength="32"
         android:hint="@string/password_hint_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
