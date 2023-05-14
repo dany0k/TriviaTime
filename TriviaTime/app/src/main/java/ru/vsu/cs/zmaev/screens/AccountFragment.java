@@ -97,12 +97,19 @@ public class AccountFragment extends Fragment {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
                     User user = snapshot.getValue(User.class);
                     List<Result> temp = new ArrayList<>();
-                    if (user.getResults() != null) {
+                    try {
+                        user.getResults();
+                        binding.emptyResultTv.setVisibility(View.GONE);
+                        binding.resultRv.setVisibility(View.VISIBLE);
                         for (String key : user.getResults().keySet()) {
                             temp.add(new Result(key, user.getResults().get(key)));
                         }
+                        adapter.setItems(temp);
+
+                    } catch (NullPointerException ex) {
+                        binding.emptyResultTv.setVisibility(View.VISIBLE);
+                        binding.resultRv.setVisibility(View.GONE);
                     }
-                    adapter.setItems(temp);
                 }
             }
 

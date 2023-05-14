@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
@@ -53,6 +54,7 @@ public class ResultFragment extends Fragment {
         accountViewModel.getUser().observe(getViewLifecycleOwner(), user ->
                 getTotalVal(accountViewModel.getUser().getValue())
         );
+        accountViewModel.getUser().removeObserver(a -> {});
         return binding.getRoot();
     }
 
@@ -60,17 +62,18 @@ public class ResultFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        viewModel.getCorrPercentage().observe(getViewLifecycleOwner(), aFloat -> {
-            binding.percentage.setText(viewModel.getCorrPercentage().getValue() + "%");
-            FirebaseUser fbUser = mAuth.getCurrentUser();
-            DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-            DatabaseReference usersRef = rootRef.child("users").child(fbUser.getUid());
-            int topicId = Math.toIntExact(viewModel.getTopicId().getValue());
-            String topic = viewModel.getQuizTitles().getValue().get(topicId).getTopicName();
-            usersRef.child("results").child(topic).setValue(viewModel.getCorrPercentage().getValue() + "%");
+        binding.percentage.setText(viewModel.getCorrPercentage().getValue() + "%");
+        binding.continueButton.setOnClickListener(v -> {
+            viewModel.getCorrPercentage().observe(getViewLifecycleOwner(), aFloat -> {
+                FirebaseUser fbUser = mAuth.getCurrentUser();
+                DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+                DatabaseReference usersRef = rootRef.child("users").child(fbUser.getUid());
+                int topicId = Math.toIntExact(viewModel.getTopicId().getValue());
+                String topic = viewModel.getQuizTitles().getValue().get(topicId).getTopicName();
+                usersRef.child("results").child(topic).setValue(viewModel.getCorrPercentage().getValue() + "%");
                 accountViewModel.getResults().observe(getViewLifecycleOwner(), aLong -> {
-                    float perc = viewModel.getCorrPercentage().getValue();
-                    long res = accountViewModel.getResults().getValue();
+                    float perc = aFloat;
+                    long res = aLong;
                     if (perc == 100f) {
                         res += 5;
                     }
@@ -82,8 +85,8 @@ public class ResultFragment extends Fragment {
                     }
                     rootRef.child("total").child(accountViewModel.getUser().getValue().getName()).setValue(res);
                 });
-        });
-        binding.continueButton.setOnClickListener(v -> {
+                accountViewModel.getResults().removeObserver(aLong1 -> {});
+            });
             Navigation.findNavController(v)
                     .navigate(R.id.action_resultFragment_to_navigation_home);
         });
@@ -117,7 +120,7 @@ public class ResultFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
                     accountViewModel.setResults(Long.parseLong(dataSnapshot.getValue().toString()));
-                    return;
+                    break;
                 }
             }
 

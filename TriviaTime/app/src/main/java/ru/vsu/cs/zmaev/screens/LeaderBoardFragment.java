@@ -15,9 +15,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import ru.vsu.cs.zmaev.adapter.LeadersRVAdapter;
@@ -55,10 +57,11 @@ public class LeaderBoardFragment extends Fragment {
         binding.leadersRv.setAdapter(adapter);
     }
 
-    private List<Leader> getTotalVal() {
+    private void getTotalVal() {
         List<Leader> totalVal = new ArrayList<>();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("total");
-        reference.addValueEventListener(new ValueEventListener() {
+        Query query = reference.orderByValue().limitToLast(100);
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
@@ -66,6 +69,7 @@ public class LeaderBoardFragment extends Fragment {
                     long total = (long) dataSnapshot.getValue();
                     totalVal.add(new Leader(username, total));
                 }
+                Collections.reverse(totalVal);
                 adapter.setItems(totalVal);
             }
 
@@ -74,6 +78,5 @@ public class LeaderBoardFragment extends Fragment {
 
             }
         });
-        return totalVal;
     }
 }
