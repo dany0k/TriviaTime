@@ -6,6 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".screens.LeaderBoardFragment">
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/onboarding_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/viewpager_background"
+        android:backgroundTint="@color/primary"
+        app:layout_constraintBottom_toTopOf="@+id/center"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:id="@+id/center"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/DefaultText"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/center"
+        android:text="Таблица лидеров"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/leaders_rv"
         android:layout_width="match_parent"
@@ -16,6 +46,6 @@
         android:textColor="@color/question_text_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/center"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

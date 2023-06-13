@@ -6,51 +6,38 @@
     tools:context="ru.vsu.cs.zmaev.screens.HomeFragment"
     android:id="@+id/titleConstraint"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/titleImage"
-        android:layout_width="393dp"
-        android:layout_height="184dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:contentDescription="@string/description"
         android:scaleType="fitCenter"
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/title_logo" />
+        android:src="@drawable/logo"/>
 
     <TextView
-        android:id="@+id/app_name_tv"
-        android:layout_width="match_parent"
+        android:id="@+id/themes"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fredokaone"
-        android:gravity="center"
-        android:text="@string/app_name"
-        android:textColor="@color/black"
-        android:textSize="40sp"
+        app:layout_constraintTop_toBottomOf="@id/titleImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleImage"/>
-
-    <Button
-        android:id="@+id/popBut"
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Populate"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="402dp" />
+        style="@style/DefaultText"
+        android:textSize="24sp"
+        android:text="Темы: "/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/topics_rv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/app_name_tv"
+        app:layout_constraintTop_toBottomOf="@id/themes"
         tools:listitem="@layout/topic_rv_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

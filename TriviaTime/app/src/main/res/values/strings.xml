@@ -48,5 +48,7 @@
     <string name="home_nav_text">Главная</string>
     <string name="leaderboard_nav_text">Топ</string>
     <string name="continue_button_label">Продолжить</string>
+    <string name="exit_button_label">Выйти</string>
+    <string name="leave_account">Выйти из аккаунта</string>
 
 </resources>

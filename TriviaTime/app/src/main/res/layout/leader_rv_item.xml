@@ -10,37 +10,64 @@
     app:cardCornerRadius="3dp"
     app:contentPadding="5dp">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="@color/gray"
+            style="@style/DefaultText"
+            android:text="Ник: "/>
 
         <TextView
             android:id="@+id/leader_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
+            style="@style/DefaultText"
             android:textColor="@color/black"
-            android:layout_marginHorizontal="@dimen/default_margin"
             tools:text="Арсений"/>
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/leader_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/leader_name"
-            android:textSize="16sp"
-            android:layout_marginEnd="8dp"
-            android:textColor="@color/black"
-            tools:text="100"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:layout_toEndOf="@id/leader_total"
-            android:text="очков." />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/leader_name"
+                style="@style/DefaultText"
+                android:textColor="@color/gray"
+                android:text="Результат: "/>
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/leader_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/leader_name"
+                style="@style/DefaultText"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/black"
+                tools:text="100"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/DefaultText"
+                android:textColor="@color/black"
+                android:layout_toEndOf="@id/leader_total"
+                android:text="очков." />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -8,7 +8,8 @@
     app:cardElevation="4dp"
     android:layout_margin="6dp"
     app:cardCornerRadius="3dp"
-    app:contentPadding="5dp">
+    app:contentPadding="5dp"
+    android:backgroundTint="@color/primary">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,10 +19,11 @@
             android:id="@+id/topic_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="50dp"
             android:gravity="center"
-            android:textSize="16sp"
-            android:textColor="@color/black"
+            style="@style/DefaultText"
+            android:textColor="@color/white"
             tools:text="Автомобили"/>
-
     </RelativeLayout>
+
 </androidx.cardview.widget.CardView>
