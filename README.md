@@ -5,7 +5,7 @@
 2. [Презентация](https://github.com/dany0k/TriviaTime/blob/main/docs/mobile.pptx)
 3. [APK file](https://github.com/dany0k/TriviaTime/blob/main/docs/TriviaTime.apk)
 # Данные для входа
-Почта: user1@gmail.com
-Пароль: Qwer123as
+- Почта: user1@gmail.com
+- Пароль: Qwer123as
 # Автор
 - [Змаев Даниил](https://github.com/dany0k)
